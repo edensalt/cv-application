@@ -1,14 +1,38 @@
 import React, { Component } from "react";
+import uniqid from "uniqid";
+
 import "./App.css";
 
-class SectionHeaderRow extends Component {
+class ContactRow extends Component {
   render() {
-    const { category } = this.props;
-    return <h1>{category}</h1>;
+    const { name, phone, email } = this.props;
+
+    return (
+      <div>
+        <h1>{name}</h1>
+        <p>{phone}</p>
+        <p>{email}</p>
+      </div>
+    );
   }
 }
 
-class SectionRow extends Component {
+class EducationRow extends Component {
+  render() {
+    const { school, degree, startDate, endDate } = this.props;
+
+    return (
+      <div>
+        <h2>{school}</h2>
+        <p>{degree}</p>
+        <p>{startDate}</p>
+        <p>{endDate}</p>
+      </div>
+    );
+  }
+}
+
+class ExperienceRow extends Component {
   render() {
     const { company, title } = this.props;
 
@@ -21,41 +45,84 @@ class SectionRow extends Component {
   }
 }
 
-class Preview extends Component {
+class SkillsRow extends Component {
+  render() {
+    const { skills } = this.props;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      isFormVisible: false,
-    };
+    return (
+      <div>
+        <p>{skills}</p>
+      </div>
+    );
   }
+}
 
+class Preview extends Component {
   render() {
     const { input } = this.props;
-    const rows = [];
+
+    const contact = [];
+    const education = [];
+    const experience = [];
+    const skills = [];
+
     // let lastCategory = null;
 
     input.forEach((section) => {
-      if (section.category === "experience") {
-        console.log(section.category);
-        rows.push(
-          <SectionHeaderRow
-            category={section.category}
-            key={section.category}
-          />
-        );
-        rows.push(
-          <SectionRow
-            company={section.company}
-            title={section.title}
-            key={section.company}
+      if (section.category === "contact") {
+        contact.push(
+          <ContactRow
+            name={section.name}
+            phone={section.phone}
+            email={section.email}
+            key={section.id}
           />
         );
       }
-      // lastCategory = section.category;
+
+      if (section.category === "education") {
+        education.push(
+          <EducationRow
+          school={section.school}
+          degree={section.degree}
+          startDate={section.startDate}
+          endDate={section.endDate}
+          key={section.id}
+          />
+        );
+      }
+
+      if (section.category === "experience") {
+        experience.push(
+          <ExperienceRow
+            company={section.company}
+            title={section.title}
+            key={section.id}
+          />
+        );
+      }
+
+      if (section.category === "skills") {
+        skills.push(
+          <SkillsRow
+            skills={section.skills}
+            key={section.id}
+          />
+        );
+      }
     });
 
-    return <div>{rows}</div>;
+    return (
+      <div>
+        <div>{contact}</div>
+        <h1>Education</h1>
+        <div>{education}</div>
+        <h1>Experience</h1>
+        <div>{experience}</div>
+        <h1>Skills</h1>
+        <div>{skills}</div>
+      </div>
+    );
   }
 }
 
@@ -65,6 +132,7 @@ const DATA = [
     name: "Eden B",
     phone: "555-555-5555",
     email: "eden@eden.com",
+    id: uniqid(),
   },
   {
     category: "education",
@@ -72,6 +140,7 @@ const DATA = [
     degree: "Public Health",
     startDate: "2014",
     endDate: "2017",
+    id: uniqid(),
   },
   {
     category: "experience",
@@ -79,6 +148,7 @@ const DATA = [
     title: "Operations Manager",
     startDate: "2021",
     endDate: "2023",
+    id: uniqid(),
   },
   {
     category: "experience",
@@ -86,15 +156,18 @@ const DATA = [
     title: "Talent Acquisition Manager",
     startDate: "2017",
     endDate: "2021",
+    id: uniqid(),
   },
   {
     category: "skills",
     skills: "React.js, JavaScript, HTML, CSS",
+    id: uniqid(),
   },
 ];
 
 class App extends Component {
   render() {
+    console.log(DATA);
     return <Preview input={DATA} />;
   }
 }
