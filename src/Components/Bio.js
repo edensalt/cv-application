@@ -35,8 +35,10 @@ const Bio = () => {
         <p>{bio.website}</p>
         <p>{bio.linkedin}</p>
       </div>
-      {editOption ? <button className="edit-button">Edit button</button> : null}
-      {editForm ? <BioForm bio={bio} onInputChange={setBio} onSave={setEditForm} /> : null}
+      <div>
+        {editOption ? <button className="edit-button">Edit button</button> : null}
+        {editForm ? <BioForm bio={bio} onInputChange={setBio} onSave={setEditForm} /> : null}
+      </div>
     </div>
   );
 };
