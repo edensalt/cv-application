@@ -1,0 +1,9 @@
+.bio {
+    position: relative;
+}
+
+.edit-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
