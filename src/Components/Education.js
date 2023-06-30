@@ -20,14 +20,23 @@ let initEducation = [
     endDate: "End date",
     accomplishments: "List of accomplishments",
   },
-]
+];
 
 const Education = () => {
   const [education, setEducation] = useState(initEducation);
 
-  function EducationRow({ edu }) {
+
+  function EducationRow({ edu, index }) {
     const [editOption, setEditOption] = useState(false);
     const [editForm, setEditForm] = useState(false);
+
+    function handleInputChange(updatedEdu, index) {
+    setEducation((prevEducation) => {
+      const updatedEducation = [...prevEducation];
+      updatedEducation[index] = updatedEdu;
+      return updatedEducation;
+    })
+  }
 
     return (
       <div
@@ -40,7 +49,9 @@ const Education = () => {
         onClick={() => {
           setEditForm(true);
         }}
-      className="edu">
+        className="edu"
+        index={index}
+      >
         <h2>{edu.school}</h2>
         <p>{edu.degree}</p>
         <p>{edu.study}</p>
@@ -49,18 +60,25 @@ const Education = () => {
         </p>
         <p>{edu.accomplishments}</p>
         <div>
-          {editOption ? <button className="edit-button">Edit button</button> : null}
-          {editForm ? <EduForm edu={edu} onInputChange={setEducation} onSave={setEditForm} /> : null}
+          {editOption ? (
+            <button className="edit-button">Edit button</button>
+          ) : null}
+          {editForm ? (
+            <EduForm
+              edu={edu}
+              index={index}
+              onInputChange={handleInputChange}
+              onSave={setEditForm}
+            />
+          ) : null}
         </div>
       </div>
     );
   }
 
-  const educationList = [];
-
-  education.forEach((edu) => {
-    educationList.push(<EducationRow edu={edu} key={edu.key} />);
-  });
+  const educationList = education.map((edu, index) => (
+    <EducationRow edu={edu} key={edu.key} index={index} />
+  ));
 
   return (
     <div className="education" style={{ backgroundColor: "yellow" }}>
