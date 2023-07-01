@@ -24,7 +24,6 @@ const Education = ({ onDelete }) => {
         setEditOption(false);
       }}
       className="edu"
-      style={{ backgroundColor: "yellow" }}
     >
       <div className="top">
         <div>
@@ -39,29 +38,27 @@ const Education = ({ onDelete }) => {
             <div>{edu.study}</div>
           </div>
       <div>{edu.accomplishments}</div>
-      <div>
-        {editOption ? (
-          <div>
-            <button
-              className="edit-button"
-              onClick={() => {
-                setEditForm(true);
-              }}
-            >
-              Edit button
-            </button>
-            <button onClick={onDelete}>Delete button</button>
-          </div>
-        ) : null}
+      {editOption ? (
+        <div className="entry-options">
+          <button
+            className="edit-button"
+            onClick={() => {
+              setEditForm(true);
+            }}
+          >
+            Edit entry
+          </button>
+          <button className="delete-button" onClick={onDelete}>Delete entry</button>
+        </div>
+      ) : null}
 
-        {editForm ? (
-          <EduForm
-            edu={edu}
-            onInputChange={setEducation}
-            onSave={setEditForm}
-          />
-        ) : null}
-      </div>
+      {editForm ? (
+        <EduForm
+          edu={edu}
+          onInputChange={setEducation}
+          onSave={setEditForm}
+        />
+      ) : null}
     </div>
   );
 };

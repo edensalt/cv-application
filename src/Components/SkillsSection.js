@@ -38,9 +38,11 @@ const SkillSection = () => {
       >
         Skills
         {addOption ? (
-          <button className="add-button" onClick={addSkill}>
-            Add a new skill
-          </button>
+          <div className="add-option">
+            <button className="add-button" onClick={addSkill}>
+              Add a new skill
+            </button>
+          </div>
         ) : null}
       </div>
       <div className="skills-list-1">

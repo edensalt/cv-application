@@ -10,7 +10,6 @@ const Skill = ({ onDelete }) => {
 
   return (
     <div
-      style={{ backgroundColor: "pink" }}
       onMouseEnter={() => {
         setEditOption(true);
       }}

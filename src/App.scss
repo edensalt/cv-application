@@ -18,73 +18,138 @@
   flex-direction: column;
 }
 
+.edit-option,
+.add-option {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .edit-button,
 .add-button {
+  justify-self: center;
+}
+
+.entry-options {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0.5rem;
 }
 
 %section-header,
 .section-header {
   font-size: 2rem;
+  width: 100%;
   font-weight: bold;
   position: relative;
-  align-self: center;
+  display: flex;
+  justify-content: center;
   font-weight: 400;
 }
 
 .entry-header {
-    font-size: 1.5rem;
-    font-weight: 600;
-    padding: .5rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
 }
 
 .top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .study {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: .5rem;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .degree,
 .position {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 // Bio
 
 .name {
-    @extend %section-header;
-    font-size: 2.5rem;
-    padding: 1rem 0;
-    font-weight: 600;
+  @extend %section-header;
+  font-size: 2.5rem;
+  padding: 1rem 0;
+  font-weight: 600;
 }
 
 .bio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
-    div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 // Skills
 
 .skills-list-1 {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    justify-content: center;
-    text-align: center;
-    gap: 0;
-    margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: center;
+  text-align: center;
+  gap: 0;
+  margin-top: 1rem;
 }
 
+button,
+%button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-weight: 600;
+  //   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  color: #3d3d3d;
+  background: #ffff56;
+  border: none;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover {
+  cursor: pointer;
+  background: #fcfc15;
+}
+
+button:focus {
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1),
+    0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+
+.add-button {
+    @extend %button;
+    background: #8fff89;
+}
+
+.add-button:hover {
+    background-color: #72fd6b
+}
+
+.delete-button {
+  @extend %button;
+  background: #ff6565;
+}
+
+.delete-button:hover {
+  background: #fa4f4f;
+}

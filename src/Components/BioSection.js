@@ -18,7 +18,6 @@ const BioSection = () => {
   return (
     <div
       className="bio"
-      style={{ backgroundColor: "orange" }}
       onMouseEnter={() => {
         setEditOption(true);
       }}
@@ -40,14 +39,16 @@ const BioSection = () => {
       </div>
       <div>
         {editOption ? (
-          <button
-            className="edit-button"
-            onClick={() => {
-              setEditForm(true);
-            }}
-          >
-            Edit button
-          </button>
+          <div className="edit-option">
+            <button
+              className="edit-button"
+              onClick={() => {
+                setEditForm(true);
+              }}
+            >
+              Edit header information
+            </button>
+          </div>
         ) : null}
         {editForm ? (
           <BioForm bio={bio} onInputChange={setBio} onSave={setEditForm} />

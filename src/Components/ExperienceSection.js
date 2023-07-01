@@ -38,9 +38,11 @@ const ExperienceSection = () => {
       >
         Work experience
         {addOption ? (
-          <button className="add-button" onClick={addExp}>
-            Add new work experience
-          </button>
+          <div className="add-option">
+            <button className="add-button" onClick={addExp}>
+              Add new work experience
+            </button>
+          </div>
         ) : null}
       </div>
       <div>

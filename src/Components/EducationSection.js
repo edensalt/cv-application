@@ -38,9 +38,11 @@ const EducationSection = () => {
       >
         Education
         {addOption ? (
-          <button className="add-button" onClick={addEdu}>
-            Add new education
-          </button>
+          <div className="add-option">
+            <button className="add-button" onClick={addEdu}>
+              Add new education
+            </button>
+          </div>
         ) : null}
       </div>
       <div>

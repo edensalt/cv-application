@@ -22,7 +22,6 @@ const Experience = ({ onDelete }) => {
         setEditOption(false);
       }}
       className="exp"
-      style={{ backgroundColor: "aqua" }}
     >
       <div className="top">
         <div>
