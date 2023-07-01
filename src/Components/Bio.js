@@ -16,28 +16,36 @@ const Bio = () => {
   const [editForm, setEditForm] = useState(false);
 
   return (
-    <div className="bio" style={{ backgroundColor: "orange" }}>
+    <div
+      className="bio"
+      style={{ backgroundColor: "orange" }}
+      onMouseEnter={() => {
+        setEditOption(true);
+      }}
+      onMouseLeave={() => {
+        setEditOption(false);
+      }}
+    >
       <h1>{bio.name}</h1>
-      <div
-        onMouseEnter={() => {
-          setEditOption(true);
-        }}
-        onMouseLeave={() => {
-          setEditOption(false);
-        }}
-        onClick={() => {
-          setEditForm(true);
-        }}
-      >
-        <p>{bio.phone}</p>
-        <p>{bio.email}</p>
-        <p>{bio.location}</p>
-        <p>{bio.website}</p>
-        <p>{bio.linkedin}</p>
-      </div>
+      <p>{bio.phone}</p>
+      <p>{bio.email}</p>
+      <p>{bio.location}</p>
+      <p>{bio.website}</p>
+      <p>{bio.linkedin}</p>
       <div>
-        {editOption ? <button className="edit-button">Edit button</button> : null}
-        {editForm ? <BioForm bio={bio} onInputChange={setBio} onSave={setEditForm} /> : null}
+        {editOption ? (
+          <button
+            className="edit-button"
+            onClick={() => {
+              setEditForm(true);
+            }}
+          >
+            Edit button
+          </button>
+        ) : null}
+        {editForm ? (
+          <BioForm bio={bio} onInputChange={setBio} onSave={setEditForm} />
+        ) : null}
       </div>
     </div>
   );

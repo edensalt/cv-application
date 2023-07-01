@@ -16,7 +16,9 @@ const BioForm = ({ bio, onInputChange, onSave }) => {
         <input type="text" value={bio.website} id="website" onChange={(e) =>onInputChange({...bio, website: e.target.value})} />
         <label htmlFor="name">LinkedIn:</label>
         <input type="text" value={bio.linkedin} id="linkedin" onChange={(e) =>onInputChange({...bio, linkedin: e.target.value})} />
-        <button onClick={(e) => onSave(false)}>Save Changes</button>
+        <button onClick={(e) => {
+          e.stopPropagation();
+          onSave(false)}}>Save Changes</button>
       </form>
     </div>
   );
