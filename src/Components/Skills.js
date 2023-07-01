@@ -1,9 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Skills = () => {
-    return (
-        <div>This is the skills section.</div>
-    )
-}
+import SkillsForm from "./SkillsForm";
 
-export default Skills;
+const Skill = ({ onDelete }) => {
+  const [skill, setSkill] = useState(["Add a skill here."]);
+
+  const [editOption, setEditOption] = useState(false);
+  const [editForm, setEditForm] = useState(false);
+
+  return (
+    <div
+      className="skills"
+      style={{ backgroundColor: "pink" }}
+      onMouseEnter={() => {
+        setEditOption(true);
+      }}
+      onMouseLeave={() => {
+        setEditOption(false);
+      }}
+    >
+      <p>{skill}</p>
+      <div>
+        {editOption ? (
+          <div>
+            <button
+              className="edit-button"
+              onClick={() => {
+                setEditForm(true);
+              }}
+            >
+              Edit button
+            </button>
+            <button onClick={onDelete}>Delete button</button>
+          </div>
+        ) : null}
+        {editForm ? (
+          <SkillsForm
+            skill={skill}
+            onInputChange={setSkill}
+            onSave={setEditForm}
+          />
+        ) : null}
+      </div>
+    </div>
+  );
+};
+
+export default Skill;

@@ -7,7 +7,7 @@ const Experience = ({ onDelete }) => {
       position: "Position",
       startDate: "Start date",
       endDate: "End date",
-      accomplishments: "List of responsibilities",
+      responsibilities: "List of responsibilities",
     });
   
     const [editOption, setEditOption] = useState(false);
