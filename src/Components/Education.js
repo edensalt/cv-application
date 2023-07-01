@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 import EduForm from "./EduForm";
 
 const Education = () => {
   const [edu, setEducation] = useState({
+    key: uuidv4(),
     school: "School name",
     degree: "Degree",
     study: "Field of study",
@@ -25,7 +28,7 @@ const Education = () => {
       onClick={() => {
         setEditForm(true);
       }}
-      className="education"
+      className="edu"
       style={{ backgroundColor: "yellow" }}
     >
       <h2>{edu.school}</h2>
