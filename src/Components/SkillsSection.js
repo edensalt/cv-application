@@ -26,7 +26,7 @@ const SkillSection = () => {
   };
 
   return (
-    <div>
+    <div className="skills">
       <div
         onMouseEnter={() => {
           setAddOption(true);
@@ -43,7 +43,7 @@ const SkillSection = () => {
           </button>
         ) : null}
       </div>
-      <div>
+      <div className="skills-list-1">
         {skills.map((skill) => (
           <Skill key={skill.key} onDelete={() => handleRemoveEdu(skill.key)} />
         ))}

@@ -26,7 +26,7 @@ const EducationSection = () => {
   };
 
   return (
-    <div>
+    <div className="edu">
       <div
         onMouseEnter={() => {
           setAddOption(true);
