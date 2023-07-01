@@ -3,8 +3,15 @@
     position: relative;
 }
 
-.edit-button {
+.edit-button,
+.add-button {
     position: absolute;
     top: 50%;
     left: 50%;
+}
+
+.section-header {
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
 }
