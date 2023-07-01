@@ -1,19 +1,87 @@
+.resume {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
 .bio,
 .edu,
 .exp,
 .skills {
-    position: relative;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.bio,
+.edu,
+.exp,
+.skills {
+  display: flex;
+  flex-direction: column;
 }
 
 .edit-button,
 .add-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
+.name,
 .section-header {
-    font-size: 2rem;
-    font-weight: bold;
-    position: relative;
+  font-size: 2rem;
+  font-weight: bold;
+  position: relative;
+  align-self: center;
+  font-weight: 400;
 }
+
+.entry-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.study {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.degree,
+.position {
+  font-weight: 600;
+}
+
+.name {
+  font-size: 2.5rem;
+  padding: 1rem 0;
+  font-weight: 600;
+}
+
+.bio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.bio-grid div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-list-1 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: center;
+  text-align: center;
+  gap: 0;
+  margin-top: 1rem;
+}
+
+/*# sourceMappingURL=App.css.map */

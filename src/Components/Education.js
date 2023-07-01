@@ -26,13 +26,19 @@ const Education = ({ onDelete }) => {
       className="edu"
       style={{ backgroundColor: "yellow" }}
     >
-      <h2>{edu.school}</h2>
-      <p>{edu.degree}</p>
-      <p>{edu.study}</p>
-      <p>
-        {edu.startDate} - {edu.endDate}
-      </p>
-      <p>{edu.accomplishments}</p>
+      <div className="top">
+        <div>
+          <div className="entry-header">{edu.school}</div>
+        </div>
+        <div>
+          {edu.startDate} - {edu.endDate}
+        </div>
+      </div>
+      <div className="study">
+            <div className="degree">{edu.degree}</div>
+            <div>{edu.study}</div>
+          </div>
+      <div>{edu.accomplishments}</div>
       <div>
         {editOption ? (
           <div>

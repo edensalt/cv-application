@@ -10,7 +10,6 @@ const Skill = ({ onDelete }) => {
 
   return (
     <div
-      className="skills"
       style={{ backgroundColor: "pink" }}
       onMouseEnter={() => {
         setEditOption(true);
@@ -19,7 +18,7 @@ const Skill = ({ onDelete }) => {
         setEditOption(false);
       }}
     >
-      <p>{skill}</p>
+      <div>{skill}</div>
       <div>
         {editOption ? (
           <div>

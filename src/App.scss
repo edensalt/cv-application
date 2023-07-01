@@ -1,0 +1,90 @@
+.resume {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+%section {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.bio,
+.edu,
+.exp,
+.skills {
+  @extend %section;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-button,
+.add-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+%section-header,
+.section-header {
+  font-size: 2rem;
+  font-weight: bold;
+  position: relative;
+  align-self: center;
+  font-weight: 400;
+}
+
+.entry-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: .5rem 0;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.study {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: .5rem;
+}
+
+.degree,
+.position {
+    font-weight: 600;
+}
+
+// Bio
+
+.name {
+    @extend %section-header;
+    font-size: 2.5rem;
+    padding: 1rem 0;
+    font-weight: 600;
+}
+
+.bio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+// Skills
+
+.skills-list-1 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+    text-align: center;
+    gap: 0;
+    margin-top: 1rem;
+}
+

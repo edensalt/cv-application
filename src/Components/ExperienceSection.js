@@ -26,7 +26,7 @@ const ExperienceSection = () => {
   };
 
   return (
-    <div>
+    <div className="exp">
       <div
         onMouseEnter={() => {
           setAddOption(true);

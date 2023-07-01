@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import BioForm from "./BioForm";
 
-const Bio = () => {
+const BioSection = () => {
   const [bio, setBio] = useState({
     name: "Full Name",
     phone: "555-555-5555",
@@ -26,12 +26,18 @@ const Bio = () => {
         setEditOption(false);
       }}
     >
-      <h1>{bio.name}</h1>
-      <p>{bio.phone}</p>
-      <p>{bio.email}</p>
-      <p>{bio.location}</p>
-      <p>{bio.website}</p>
-      <p>{bio.linkedin}</p>
+      <div className="name">{bio.name}</div>
+      <div className="bio-grid">
+        <div>
+          <div>{bio.phone}</div>
+          <div>{bio.email}</div>
+        </div>
+        <div>{bio.location}</div>
+        <div>
+          <div>{bio.website}</div>
+          <div>{bio.linkedin}</div>
+        </div>
+      </div>
       <div>
         {editOption ? (
           <button
@@ -51,4 +57,4 @@ const Bio = () => {
   );
 };
 
-export default Bio;
+export default BioSection;
