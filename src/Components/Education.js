@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 
 import EduForm from "./EduForm";
 
-const Education = () => {
+const Education = ({ onDelete }) => {
   const [edu, setEducation] = useState({
-    key: uuidv4(),
     school: "School name",
     degree: "Degree",
     study: "Field of study",
@@ -25,9 +23,6 @@ const Education = () => {
       onMouseLeave={() => {
         setEditOption(false);
       }}
-      onClick={() => {
-        setEditForm(true);
-      }}
       className="edu"
       style={{ backgroundColor: "yellow" }}
     >
@@ -40,7 +35,17 @@ const Education = () => {
       <p>{edu.accomplishments}</p>
       <div>
         {editOption ? (
-          <button className="edit-button">Edit button</button>
+          <div>
+            <button
+              className="edit-button"
+              onClick={() => {
+                setEditForm(true);
+              }}
+            >
+              Edit button
+            </button>
+            <button onClick={onDelete}>Delete button</button>
+          </div>
         ) : null}
 
         {editForm ? (

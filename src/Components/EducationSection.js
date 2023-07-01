@@ -8,16 +8,22 @@ const EducationSection = () => {
   const [edus, setEdus] = useState([
     {
       key: uuidv4(),
-      display: <Education />,
     },
   ]);
 
   function addEdu() {
-    setEdus([...edus, {
-      key: uuidv4(),
-      display: <Education />,
-    },]);
+    setEdus((prevEdus) => [
+      ...prevEdus,
+      {
+        key: uuidv4(),
+      },
+    ]);
   }
+
+  const handleRemoveEdu = (eduKey) => {
+    const updatedEdus = edus.filter((edu) => edu.key !== eduKey);
+    setEdus(updatedEdus);
+  };
 
   console.table(edus);
 
@@ -39,9 +45,11 @@ const EducationSection = () => {
           </button>
         ) : null}
       </div>
-      <div>{edus.map((edu) => (
-        <div key={edu.key}>{edu.display}</div>
-      ))}</div>
+      <div>
+        {edus.map((edu) => (
+          <Education key={edu.key} onDelete={() => handleRemoveEdu(edu.key)} />
+        ))}
+      </div>
     </div>
   );
 };
