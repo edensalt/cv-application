@@ -25,8 +25,6 @@ const EducationSection = () => {
     setEdus(updatedEdus);
   };
 
-  console.table(edus);
-
   return (
     <div>
       <div
