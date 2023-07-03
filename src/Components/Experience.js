@@ -11,13 +11,15 @@ const Experience = ({ onDelete }) => {
   });
 
   const [editOption, setEditOption] = useState(false);
-  const [editForm, setEditForm] = useState(false);
+  const [editForm, setEditForm] = useState(true);
 
   return (
     <div>
       <div
         onMouseEnter={() => {
-          setEditOption(true);
+          if (!editForm) {
+            setEditOption(true);
+          }
         }}
         onMouseLeave={() => {
           setEditOption(false);

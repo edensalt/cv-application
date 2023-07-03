@@ -5,16 +5,18 @@ import Pencil from "../Assets/Pencil/pencil";
 import Trash from "../Assets/Trash/trash";
 
 const Skill = ({ onDelete }) => {
-  const [skill, setSkill] = useState(["Add a skill here."]);
+  const [skill, setSkill] = useState(["New skill"]);
 
   const [editOption, setEditOption] = useState(false);
-  const [editForm, setEditForm] = useState(false);
+  const [editForm, setEditForm] = useState(true);
 
   return (
     <div>
       <div
         onMouseEnter={() => {
-          setEditOption(true);
+          if (!editForm) {
+            setEditOption(true);
+          }
         }}
         onMouseLeave={() => {
           setEditOption(false);
