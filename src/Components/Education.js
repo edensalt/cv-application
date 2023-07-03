@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import EduForm from "./EduForm";
 
-const Education = ({ onDelete }) => {
-  const [edu, setEducation] = useState({
-    school: "School name",
-    degree: "Degree",
-    study: "Field of study",
-    startDate: "Start date",
-    endDate: "End date",
-    accomplishments: "List of accomplishments",
-  });
+const Education = ({ edu: initialEdu, onDelete, onSaveEdu }) => {
+  const [edu, setEducation] = useState(initialEdu);
+
+
+  useEffect(() => {
+    setEducation(initialEdu)
+  }, [initialEdu]);
 
   const [editOption, setEditOption] = useState(false);
   const [editForm, setEditForm] = useState(true);
@@ -58,7 +56,9 @@ const Education = ({ onDelete }) => {
         ) : null}
       </div>
       {editForm ? (
-        <EduForm edu={edu} onInputChange={setEducation} onSave={setEditForm} />
+        <EduForm edu={edu} onInputChange={setEducation} onSave={() => {
+          setEditForm(false);
+        onSaveEdu(edu)}} />
       ) : null}
     </div>
   );

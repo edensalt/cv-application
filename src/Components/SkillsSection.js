@@ -38,8 +38,14 @@ const SkillSection = () => {
   };
 
   const handleSaveSkill = (updatedSkill) => {
-    setSkills((prevSkills) => prevSkills.map((skill) => skill.key === updatedSkill.key ? {...skill, name: updatedSkill.name} : skill))
-  }
+    setSkills((prevSkills) =>
+      prevSkills.map((skill) =>
+        skill.key === updatedSkill.key
+          ? { ...skill, name: updatedSkill.name }
+          : skill
+      )
+    );
+  };
 
   return (
     <div className="skills">
@@ -63,7 +69,14 @@ const SkillSection = () => {
       </div>
       <DynamicGrid>
         {skills.map((skill) => (
-          <Skill key={skill.key} skill={skill.name} onDelete={() => handleRemoveEdu(skill.key)} onSaveSkill={(updatedSkill) => handleSaveSkill({...skill, name: updatedSkill})} />
+          <Skill
+            key={skill.key}
+            skill={skill.name}
+            onDelete={() => handleRemoveEdu(skill.key)}
+            onSaveSkill={(updatedSkill) =>
+              handleSaveSkill({ ...skill, name: updatedSkill })
+            }
+          />
         ))}
       </DynamicGrid>
     </div>
