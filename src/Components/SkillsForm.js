@@ -2,7 +2,7 @@ import React from "react";
 
 const SkillsForm = ({ skill, onInputChange, onSave }) => {
   return (
-    <div>
+    <div className="form-skills-div">
       <form>
         <label htmlFor="skills">Skills:</label>
         <input

@@ -14,50 +14,47 @@ const Experience = ({ onDelete }) => {
   const [editForm, setEditForm] = useState(false);
 
   return (
-    <div
-      onMouseEnter={() => {
-        setEditOption(true);
-      }}
-      onMouseLeave={() => {
-        setEditOption(false);
-      }}
-      className="exp"
-    >
-      <div className="top">
-        <div>
-          <div className="entry-header">{exp.company}</div>
-        </div>
-        <div>
-          {exp.startDate} - {exp.endDate}
-        </div>
-      </div>
-      <div className="study">
-        <div className="position">{exp.position}</div>
-      </div>
-      <div>{exp.responsibilities}</div>
-      <div>
-        {editOption ? (
+    <div>
+      <div
+        onMouseEnter={() => {
+          setEditOption(true);
+        }}
+        onMouseLeave={() => {
+          setEditOption(false);
+        }}
+        className="exp"
+      >
+        <div className="top">
           <div>
+            <div className="entry-header">{exp.company}</div>
+          </div>
+          <div>
+            {exp.startDate} - {exp.endDate}
+          </div>
+        </div>
+        <div className="study">
+          <div className="position">{exp.position}</div>
+        </div>
+        <div>{exp.responsibilities}</div>
+        {editOption ? (
+          <div className="entry-options">
             <button
               className="edit-button"
               onClick={() => {
                 setEditForm(true);
               }}
             >
-              Edit button
+              Edit entry
             </button>
-            <button onClick={onDelete}>Delete button</button>
+            <button className="delete-button" onClick={onDelete}>
+              Delete entry
+            </button>
           </div>
         ) : null}
-
-        {editForm ? (
-          <ExpForm
-            exp={exp}
-            onInputChange={setExperience}
-            onSave={setEditForm}
-          />
-        ) : null}
       </div>
+      {editForm ? (
+        <ExpForm exp={exp} onInputChange={setExperience} onSave={setEditForm} />
+      ) : null}
     </div>
   );
 };

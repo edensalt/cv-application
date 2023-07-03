@@ -2,7 +2,7 @@ import React from "react";
 
 const ExpForm = ({ exp, onInputChange, onSave }) => {
   return (
-    <div>
+    <div className="form-div">
       <form>
         <label htmlFor="school">Company:</label>
         <input

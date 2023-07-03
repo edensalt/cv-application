@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import SkillsForm from "./SkillsForm";
+import Pencil from "../Assets/Pencil/pencil";
 
 const Skill = ({ onDelete }) => {
   const [skill, setSkill] = useState(["Add a skill here."]);
@@ -9,37 +10,38 @@ const Skill = ({ onDelete }) => {
   const [editForm, setEditForm] = useState(false);
 
   return (
-    <div
-      onMouseEnter={() => {
-        setEditOption(true);
-      }}
-      onMouseLeave={() => {
-        setEditOption(false);
-      }}
-    >
-      <div>{skill}</div>
-      <div>
+    <div>
+      <div
+        onMouseEnter={() => {
+          setEditOption(true);
+        }}
+        onMouseLeave={() => {
+          setEditOption(false);
+        }}
+        className="skills"
+      >
+        <div>{skill}</div>
         {editOption ? (
-          <div>
+          <div className="entry-skill-options">
             <button
-              className="edit-button"
+              className="edit-skill-button"
               onClick={() => {
                 setEditForm(true);
               }}
             >
-              Edit button
+              <Pencil />
             </button>
             <button onClick={onDelete}>Delete button</button>
           </div>
         ) : null}
-        {editForm ? (
+      </div>
+      {editForm ? (
           <SkillsForm
             skill={skill}
             onInputChange={setSkill}
             onSave={setEditForm}
           />
         ) : null}
-      </div>
     </div>
   );
 };

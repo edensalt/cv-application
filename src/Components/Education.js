@@ -16,48 +16,47 @@ const Education = ({ onDelete }) => {
   const [editForm, setEditForm] = useState(false);
 
   return (
-    <div
-      onMouseEnter={() => {
-        setEditOption(true);
-      }}
-      onMouseLeave={() => {
-        setEditOption(false);
-      }}
-      className="edu"
-    >
-      <div className="top">
-        <div>
-          <div className="entry-header">{edu.school}</div>
-        </div>
-        <div>
-          {edu.startDate} - {edu.endDate}
-        </div>
-      </div>
-      <div className="study">
-            <div className="degree">{edu.degree}</div>
-            <div>{edu.study}</div>
+    <div>
+      <div
+        onMouseEnter={() => {
+          setEditOption(true);
+        }}
+        onMouseLeave={() => {
+          setEditOption(false);
+        }}
+        className="edu"
+      >
+        <div className="top">
+          <div>
+            <div className="entry-header">{edu.school}</div>
           </div>
-      <div>{edu.accomplishments}</div>
-      {editOption ? (
-        <div className="entry-options">
-          <button
-            className="edit-button"
-            onClick={() => {
-              setEditForm(true);
-            }}
-          >
-            Edit entry
-          </button>
-          <button className="delete-button" onClick={onDelete}>Delete entry</button>
+          <div>
+            {edu.startDate} - {edu.endDate}
+          </div>
         </div>
-      ) : null}
-
+        <div className="study">
+          <div className="degree">{edu.degree}</div>
+          <div>{edu.study}</div>
+        </div>
+        <div>{edu.accomplishments}</div>
+        {editOption ? (
+          <div className="entry-options">
+            <button
+              className="edit-button"
+              onClick={() => {
+                setEditForm(true);
+              }}
+            >
+              Edit entry
+            </button>
+            <button className="delete-button" onClick={onDelete}>
+              Delete entry
+            </button>
+          </div>
+        ) : null}
+      </div>
       {editForm ? (
-        <EduForm
-          edu={edu}
-          onInputChange={setEducation}
-          onSave={setEditForm}
-        />
+        <EduForm edu={edu} onInputChange={setEducation} onSave={setEditForm} />
       ) : null}
     </div>
   );

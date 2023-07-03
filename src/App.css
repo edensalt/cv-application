@@ -6,16 +6,18 @@
 
 .bio,
 .edu,
-.exp,
-.skills {
+.exp {
   position: relative;
   margin-bottom: 1rem;
 }
 
+.skills {
+  position: relative;
+}
+
 .bio,
 .edu,
-.exp,
-.skills {
+.exp {
   display: flex;
   flex-direction: column;
 }
@@ -42,6 +44,15 @@
   justify-content: center;
   gap: 1rem;
   margin: 0.5rem;
+}
+
+.entry-skill-options {
+  position: absolute;
+  top: 0%;
+  right: 50%;
+  transform: translateX(230px);
+  display: flex;
+  gap: 6px;
 }
 
 .name,
@@ -78,6 +89,36 @@
   font-weight: 600;
 }
 
+.form-div,
+.form-skills-div {
+  margin: 10px;
+}
+.form-div form,
+.form-skills-div form {
+  padding: 10px;
+  border: 1px solid gray;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 50%;
+  gap: 6px;
+  margin: 0 auto;
+}
+.form-div form label,
+.form-skills-div form label {
+  justify-self: end;
+  font-weight: 600;
+}
+.form-div form button,
+.form-skills-div form button {
+  grid-column-start: span 2;
+  width: 50%;
+  justify-self: center;
+}
+
+.form-skills-div form {
+  width: 33%;
+}
+
 .name {
   font-size: 2.5rem;
   padding: 1rem 0;
@@ -103,19 +144,16 @@
   margin-top: 1rem;
 }
 
-button,
-.delete-button,
-.add-button {
+button {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 6px 14px;
-  font-weight: 600;
   border-radius: 6px;
-  color: #3d3d3d;
-  background: #ffff56;
+  font-weight: 600;
+  color: white;
+  background: #4a0160;
   border: none;
-  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -123,28 +161,12 @@ button,
 
 button:hover {
   cursor: pointer;
-  background: #fcfc15;
+  background: #700192;
 }
 
 button:focus {
   box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
   outline: 0;
-}
-
-.add-button {
-  background: #8fff89;
-}
-
-.add-button:hover {
-  background-color: #72fd6b;
-}
-
-.delete-button {
-  background: #ff6565;
-}
-
-.delete-button:hover {
-  background: #fa4f4f;
 }
 
 /*# sourceMappingURL=App.css.map */

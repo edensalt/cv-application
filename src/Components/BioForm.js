@@ -2,7 +2,7 @@ import React from "react";
 
 const BioForm = ({ bio, onInputChange, onSave }) => {
   return (
-    <div>
+    <div className="form-div">
       <form>
         <label htmlFor="name">Name:</label>
         <input type="text" value={bio.name} id="name" onChange={(e) =>onInputChange({...bio, name: e.target.value})} />
