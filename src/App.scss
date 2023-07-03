@@ -281,3 +281,31 @@ button:focus {
   justify-content: center;
   align-items: center;
 }
+
+.help {
+  width: 90px;
+  height: 90px;
+  position: fixed;
+  background: rgb(203, 181, 212);
+  border: solid 10px;
+  border-radius: 6px;
+  border-color: white;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  * {
+    height: 75%;
+    width: 75%;
+  }
+}
+
+.help:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 500ms;
+  transition-delay: 0.5s;
+}

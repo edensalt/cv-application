@@ -1,4 +1,4 @@
-const Welcome = ({ onExit }) => {
+const Welcome = ({ exit }) => {
   return (
     <div className="start">
       <div className="welcome">
@@ -32,7 +32,7 @@ const Welcome = ({ onExit }) => {
           </div>
         </div>
       </div>
-      <button className="close" onClick={onExit}>
+      <button className="close" onClick={exit}>
         X
       </button>
     </div>
