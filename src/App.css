@@ -1,3 +1,7 @@
+.app {
+  position: relative;
+}
+
 .resume {
   padding: 12px;
   display: flex;
@@ -180,6 +184,77 @@ button:hover {
 button:focus {
   box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
   outline: 0;
+}
+
+.start {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.552);
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(6px);
+}
+
+.welcome {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  text-align: center;
+  background: rgb(203, 181, 212);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 40%;
+  border-radius: 6px;
+}
+.welcome .title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-style: italic;
+  padding: 2rem 0;
+}
+.welcome .step {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1.5rem;
+  font-size: 1.25rem;
+  text-align: start;
+}
+.welcome .action {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: CENTER;
+  align-self: center;
+}
+.welcome .learn {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-style: italic;
+  padding: 2rem 0;
+}
+.welcome .code {
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0 3px;
+}
+
+.close {
+  font-weight: 700;
+  font-size: 4rem;
+  position: fixed;
+  top: 10%;
+  right: 10%;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=App.css.map */
