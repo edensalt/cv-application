@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import SkillsForm from "./SkillsForm";
 import Pencil from "../Assets/Pencil/pencil";
+import Trash from "../Assets/Trash/trash";
 
 const Skill = ({ onDelete }) => {
   const [skill, setSkill] = useState(["Add a skill here."]);
@@ -24,6 +25,7 @@ const Skill = ({ onDelete }) => {
         {editOption ? (
           <div className="entry-skill-options">
             <button
+            title="Edit entry"
               className="edit-skill-button"
               onClick={() => {
                 setEditForm(true);
@@ -31,7 +33,7 @@ const Skill = ({ onDelete }) => {
             >
               <Pencil />
             </button>
-            <button onClick={onDelete}>Delete button</button>
+            <button title="Delete entry" onClick={onDelete}><Trash /></button>
           </div>
         ) : null}
       </div>

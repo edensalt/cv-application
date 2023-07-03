@@ -41,7 +41,7 @@ const BioSection = () => {
         {editOption ? (
           <div className="edit-option">
             <button
-              className="edit-button"
+              className="edit-button bio-edit"
               onClick={() => {
                 setEditForm(true);
               }}

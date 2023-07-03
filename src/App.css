@@ -36,6 +36,10 @@
   justify-self: center;
 }
 
+.edit-button.bio-edit {
+  transform: translateY(60px);
+}
+
 .entry-options {
   position: absolute;
   top: 25%;
@@ -50,7 +54,7 @@
   position: absolute;
   top: 0%;
   right: 50%;
-  transform: translateX(230px);
+  transform: translateX(180px);
   display: flex;
   gap: 6px;
 }
@@ -135,13 +139,21 @@
   align-items: center;
 }
 
-.skills-list-1 {
+.skills-list-3, .skills-list-2, .skills-list-1 {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   justify-content: center;
   text-align: center;
   gap: 0;
   margin-top: 1rem;
+}
+
+.skills-list-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.skills-list-3 {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 button {
@@ -157,6 +169,7 @@ button {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 button:hover {

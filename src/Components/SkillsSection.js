@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import Skill from "./Skills";
+import DynamicGrid from "../Constants/DynamicGrid.js";
 
 const SkillSection = () => {
   const [addOption, setAddOption] = useState(false);
@@ -25,6 +26,7 @@ const SkillSection = () => {
     setSkills(updatedSkills);
   };
 
+
   return (
     <div className="skills">
       <div
@@ -45,11 +47,11 @@ const SkillSection = () => {
           </div>
         ) : null}
       </div>
-      <div className="skills-list-1">
+      <DynamicGrid className="skills-list-1">
         {skills.map((skill) => (
           <Skill key={skill.key} onDelete={() => handleRemoveEdu(skill.key)} />
         ))}
-      </div>
+      </DynamicGrid>
     </div>
   );
 };
