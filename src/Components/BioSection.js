@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import BioForm from "./BioForm";
 
 const BioSection = () => {
+
+  const storedBio = JSON.parse(localStorage.getItem('bio'));
+
   const [bio, setBio] = useState({
-    name: "Full Name",
-    phone: "555-555-5555",
-    email: "yourname@email.com",
-    location: "City, State",
-    website: "github.com/yourname",
-    linkedin: "linkedin.com/in/yourname",
+    name: storedBio.name || "",
+    phone: storedBio.phone || "555-555-5555",
+    email: storedBio.email || "yourname@email.com",
+    location: storedBio.location || "City, State",
+    website: storedBio.website || "github.com/yourname",
+    linkedin: storedBio.linkedin || "linkedin.com/in/yourname",
   });
+
+  useEffect(() => {
+    localStorage.setItem('bio', JSON.stringify(bio))
+  }, [bio])
 
   const [editOption, setEditOption] = useState(false);
   const [editForm, setEditForm] = useState(true);
@@ -19,8 +26,9 @@ const BioSection = () => {
     <div
       className="bio"
       onMouseEnter={() => {
-        if (!editForm) {setEditOption(true)}
-     
+        if (!editForm) {
+          setEditOption(true);
+        }
       }}
       onMouseLeave={() => {
         setEditOption(false);
