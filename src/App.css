@@ -104,7 +104,7 @@
 .form-div form,
 .form-skills-div form {
   padding: 10px;
-  border: 1px solid gray;
+  border: 1px solid #4a0160;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 50%;
@@ -125,6 +125,10 @@
 
 .form-skills-div form {
   width: 33%;
+}
+
+input {
+  color: gray;
 }
 
 .name {
