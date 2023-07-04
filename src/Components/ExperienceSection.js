@@ -1,21 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import Experience from "./Experience";
 
 const ExperienceSection = () => {
   const [addOption, setAddOption] = useState(false);
-  const [exps, setExps] = useState([
-    {
-      key: uuidv4(),
-    },
-  ]);
+  const storedExp = JSON.parse(localStorage.getItem("exps"));
+
+  const [exps, setExps] = useState(
+    storedExp || [
+      {
+        key: uuidv4(),
+        company: "Company name",
+        position: "Position",
+        startDate: "Start date",
+        endDate: "End date",
+        responsibilities: "List of responsibilities",
+      },
+    ]
+  );
+
+  useEffect(() => {
+    console.table(exps);
+    localStorage.setItem("exps", JSON.stringify(exps));
+  }, [exps]);
 
   function addExp() {
     setExps((prevExps) => [
       ...prevExps,
       {
         key: uuidv4(),
+        company: "Company name",
+        position: "Position",
+        startDate: "Start date",
+        endDate: "End date",
+        responsibilities: "List of responsibilities",
       },
     ]);
   }
@@ -23,6 +42,23 @@ const ExperienceSection = () => {
   const handleRemoveEdu = (expKey) => {
     const updatedExps = exps.filter((exp) => exp.key !== expKey);
     setExps(updatedExps);
+  };
+
+  const handleSaveExp = (updatedExp) => {
+    setExps((prevExps) =>
+      prevExps.map((exp) =>
+        exp.key === updatedExp.key
+          ? {
+              ...exp,
+              company: updatedExp.company,
+              position: updatedExp.position,
+              startDate: updatedExp.startDate,
+              endDate: updatedExp.endDate,
+              responsibilities: updatedExp.responsibilities,
+            }
+          : exp
+      )
+    );
   };
 
   return (
@@ -47,7 +83,28 @@ const ExperienceSection = () => {
       </div>
       <div>
         {exps.map((exp) => (
-          <Experience key={exp.key} onDelete={() => handleRemoveEdu(exp.key)} />
+          <Experience
+            key={exp.key}
+            exp={exp}
+            onDelete={() => handleRemoveEdu(exp.key)}
+            onSaveExp={(updatedExp) =>
+              handleSaveExp({
+                ...exp,
+                company: updatedExp.company,
+                position: updatedExp.position,
+                startDate: updatedExp.startDate,
+                endDate: updatedExp.endDate,
+                responsibilities: updatedExp.responsibilities,
+              })
+            }
+            isNew={
+              exp.company === "Company name" &&
+              exp.position === "Position" &&
+              exp.startDate === "Start date" &&
+              exp.endDate === "End date" &&
+              exp.responsibilities === "List of responsibilities"
+            }
+          />
         ))}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import Skill from "./Skills";
@@ -6,17 +6,28 @@ import DynamicGrid from "../Constants/DynamicGrid.js";
 
 const SkillSection = () => {
   const [addOption, setAddOption] = useState(false);
-  const [skills, setSkills] = useState([
-    {
-      key: uuidv4(),
-    },
-  ]);
+  const storedSkills = JSON.parse(localStorage.getItem("skills"));
+
+  const [skills, setSkills] = useState(
+    storedSkills || [
+      {
+        key: uuidv4(),
+        name: "New skill",
+      },
+    ]
+  );
+
+  useEffect(() => {
+    console.table(skills);
+    localStorage.setItem("skills", JSON.stringify(skills));
+  }, [skills]);
 
   function addSkill() {
     setSkills((prevSkills) => [
       ...prevSkills,
       {
         key: uuidv4(),
+        name: "New skill",
       },
     ]);
   }
@@ -26,6 +37,15 @@ const SkillSection = () => {
     setSkills(updatedSkills);
   };
 
+  const handleSaveSkill = (updatedSkill) => {
+    setSkills((prevSkills) =>
+      prevSkills.map((skill) =>
+        skill.key === updatedSkill.key
+          ? { ...skill, name: updatedSkill.name }
+          : skill
+      )
+    );
+  };
 
   return (
     <div className="skills">
@@ -47,9 +67,19 @@ const SkillSection = () => {
           </div>
         ) : null}
       </div>
-      <DynamicGrid className="skills-list-1">
+      <DynamicGrid>
         {skills.map((skill) => (
-          <Skill key={skill.key} onDelete={() => handleRemoveEdu(skill.key)} />
+          <Skill
+            key={skill.key}
+            skill={skill.name}
+            onDelete={() => handleRemoveEdu(skill.key)}
+            onSaveSkill={(updatedSkill) =>
+              handleSaveSkill({ ...skill, name: updatedSkill })
+            }
+            isNew={
+              skill.name === "New skill"
+            }
+          />
         ))}
       </DynamicGrid>
     </div>

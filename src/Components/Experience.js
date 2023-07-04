@@ -1,17 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ExpForm from "./ExpForm";
 
-const Experience = ({ onDelete }) => {
-  const [exp, setExperience] = useState({
-    company: "Company name",
-    position: "Position",
-    startDate: "Start date",
-    endDate: "End date",
-    responsibilities: "List of responsibilities",
-  });
+const Experience = ({ exp: initialExp, onDelete, onSaveExp, isNew }) => {
+  const [exp, setExperience] = useState(initialExp);
+
+  useEffect(() => {
+    setExperience(initialExp);
+  }, [initialExp]);
 
   const [editOption, setEditOption] = useState(false);
-  const [editForm, setEditForm] = useState(true);
+  const [editForm, setEditForm] = useState(isNew);
 
   return (
     <div>
@@ -55,7 +53,14 @@ const Experience = ({ onDelete }) => {
         ) : null}
       </div>
       {editForm ? (
-        <ExpForm exp={exp} onInputChange={setExperience} onSave={setEditForm} />
+        <ExpForm
+          exp={exp}
+          onInputChange={setExperience}
+          onSave={() => {
+            setEditForm(false);
+            onSaveExp(exp);
+          }}
+        />
       ) : null}
     </div>
   );

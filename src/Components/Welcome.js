@@ -1,4 +1,11 @@
 const Welcome = ({ exit }) => {
+
+const clearStorage = () => {
+  localStorage.clear();
+  window.location.reload(false);
+
+}
+
   return (
     <div className="start">
       <div className="welcome">
@@ -19,8 +26,9 @@ const Welcome = ({ exit }) => {
             formatted resume!
           </div>
         </div>
+        <button className="clear" onClick={clearStorage}>Clear local storage</button>
         <div className="learn">
-          <div>
+          <div className="hint">
             Hover your cursor in the top-right corner of the page to show this
             box agin.
           </div>

@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import SkillsForm from "./SkillsForm";
 import Pencil from "../Assets/Pencil/pencil";
 import Trash from "../Assets/Trash/trash";
 
-const Skill = ({ onDelete }) => {
-  const [skill, setSkill] = useState(["New skill"]);
+const Skill = ({ skill: initialSkill, onDelete, onSaveSkill, isNew }) => {
+  
+  const [skill, setSkill] = useState([initialSkill]);
+
+  useEffect(() => {
+    setSkill(initialSkill)
+  }, [initialSkill]);
+
 
   const [editOption, setEditOption] = useState(false);
-  const [editForm, setEditForm] = useState(true);
+  const [editForm, setEditForm] = useState(isNew);
 
   return (
     <div>
@@ -43,7 +49,9 @@ const Skill = ({ onDelete }) => {
           <SkillsForm
             skill={skill}
             onInputChange={setSkill}
-            onSave={setEditForm}
+            onSave={() => {
+              setEditForm(false);
+            onSaveSkill(skill)}}
           />
         ) : null}
     </div>
