@@ -6,6 +6,17 @@ const BioSection = () => {
 
   const storedBio = JSON.parse(localStorage.getItem('bio'));
 
+  const isNew = () => {
+    if (
+    storedBio.name === "Full name" &&
+    storedBio.phone === "555-555-5555" &&
+    storedBio.email ===  "yourname@email.com" &&
+    storedBio.location === "City, State" &&
+    storedBio.website === "github.com/yourname" &&
+    storedBio.linkedin === "linkedin.com/in/yourname"
+    ) return true;
+  }
+
   const [bio, setBio] = useState(
     storedBio || {
     name: "Full name",
@@ -21,7 +32,7 @@ const BioSection = () => {
   }, [bio])
 
   const [editOption, setEditOption] = useState(false);
-  const [editForm, setEditForm] = useState(!storedBio);
+  const [editForm, setEditForm] = useState(isNew);
 
   return (
     <div
