@@ -235,7 +235,7 @@ button:focus {
     font-size: 2.5rem;
     font-weight: 700;
     font-style: italic;
-    padding: 2rem 0;
+    margin: 2rem 0;
   }
 
   .step {
@@ -253,12 +253,21 @@ button:focus {
     align-self: center;
   }
 
+  .clear {
+    margin-top: 2rem;
+    align-self: center;
+  }
+
   .learn {
     display: flex;
     flex-direction: column;
     gap: 6px;
     font-style: italic;
-    padding: 2rem 0;
+    margin: 2rem 0;
+    
+    .hint {
+      font-weight: 600;
+    }
   }
 
   .code {

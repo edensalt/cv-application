@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ExpForm from "./ExpForm";
 
-const Experience = ({ exp: initialExp, onDelete, onSaveExp }) => {
+const Experience = ({ exp: initialExp, onDelete, onSaveExp, isNew }) => {
   const [exp, setExperience] = useState(initialExp);
 
   useEffect(() => {
@@ -9,7 +9,7 @@ const Experience = ({ exp: initialExp, onDelete, onSaveExp }) => {
   }, [initialExp]);
 
   const [editOption, setEditOption] = useState(false);
-  const [editForm, setEditForm] = useState(true);
+  const [editForm, setEditForm] = useState(isNew);
 
   return (
     <div>

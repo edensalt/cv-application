@@ -76,6 +76,9 @@ const SkillSection = () => {
             onSaveSkill={(updatedSkill) =>
               handleSaveSkill({ ...skill, name: updatedSkill })
             }
+            isNew={
+              skill.name === "New skill"
+            }
           />
         ))}
       </DynamicGrid>

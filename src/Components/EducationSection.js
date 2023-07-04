@@ -8,15 +8,17 @@ const EducationSection = () => {
   const storedEdu = JSON.parse(localStorage.getItem("edus"));
 
   const [edus, setEdus] = useState(
-    storedEdu || [{
-      key: uuidv4(),
-      school: "School name",
-      degree: "Degree",
-      study: "Field of study",
-      startDate: "Start date",
-      endDate: "End date",
-      accomplishments: "List of accomplishments",
-    }],
+    storedEdu || [
+      {
+        key: uuidv4(),
+        school: "School name",
+        degree: "Degree",
+        study: "Field of study",
+        startDate: "Start date",
+        endDate: "End date",
+        accomplishments: "List of accomplishments",
+      },
+    ]
   );
 
   useEffect(() => {
@@ -98,6 +100,14 @@ const EducationSection = () => {
                 endDate: updatedEdu.endDate,
                 accomplishments: updatedEdu.accomplishments,
               })
+            }
+            isNew={
+              edu.school === "School name" &&
+              edu.degree === "Degree" &&
+              edu.study === "Field of study" &&
+              edu.startDate === "Start date" &&
+              edu.endDate === "End date" &&
+              edu.accomplishments === "List of accomplishments"
             }
           />
         ))}

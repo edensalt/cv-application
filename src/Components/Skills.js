@@ -4,7 +4,7 @@ import SkillsForm from "./SkillsForm";
 import Pencil from "../Assets/Pencil/pencil";
 import Trash from "../Assets/Trash/trash";
 
-const Skill = ({ skill: initialSkill, onDelete, onSaveSkill }) => {
+const Skill = ({ skill: initialSkill, onDelete, onSaveSkill, isNew }) => {
   
   const [skill, setSkill] = useState([initialSkill]);
 
@@ -14,7 +14,7 @@ const Skill = ({ skill: initialSkill, onDelete, onSaveSkill }) => {
 
 
   const [editOption, setEditOption] = useState(false);
-  const [editForm, setEditForm] = useState(true);
+  const [editForm, setEditForm] = useState(isNew);
 
   return (
     <div>

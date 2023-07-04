@@ -2,8 +2,11 @@
 CV application for the <a href="https://www.theodinproject.com/lessons/node-path-javascript-cv-application">Odin Project: JavaScript course</a>
 
 ## Skills demonstrated
-- React JS (functional components, state and props, handling inputs and rendering lists)
-- localStorage for data preservation
+- React JS
+  - Functional components
+  - State and props
+  - Handling inputs and rendering lists
+  - Saving data to localStorage with useEffect hook
 - Sass for styling
 - <a href="https://www.npmjs.com/package/uuid">UUID</a> for unique keys
 

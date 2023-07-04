@@ -2,16 +2,15 @@ import React, { useEffect, useState } from "react";
 
 import EduForm from "./EduForm";
 
-const Education = ({ edu: initialEdu, onDelete, onSaveEdu }) => {
+const Education = ({ edu: initialEdu, onDelete, onSaveEdu, isNew }) => {
   const [edu, setEducation] = useState(initialEdu);
 
-
   useEffect(() => {
-    setEducation(initialEdu)
+    setEducation(initialEdu);
   }, [initialEdu]);
 
   const [editOption, setEditOption] = useState(false);
-  const [editForm, setEditForm] = useState(true);
+  const [editForm, setEditForm] = useState(isNew);
 
   return (
     <div>
@@ -56,9 +55,14 @@ const Education = ({ edu: initialEdu, onDelete, onSaveEdu }) => {
         ) : null}
       </div>
       {editForm ? (
-        <EduForm edu={edu} onInputChange={setEducation} onSave={() => {
-          setEditForm(false);
-        onSaveEdu(edu)}} />
+        <EduForm
+          edu={edu}
+          onInputChange={setEducation}
+          onSave={() => {
+            setEditForm(false);
+            onSaveEdu(edu);
+          }}
+        />
       ) : null}
     </div>
   );

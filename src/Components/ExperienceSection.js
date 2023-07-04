@@ -97,6 +97,13 @@ const ExperienceSection = () => {
                 responsibilities: updatedExp.responsibilities,
               })
             }
+            isNew={
+              exp.company === "Company name" &&
+              exp.position === "Position" &&
+              exp.startDate === "Start date" &&
+              exp.endDate === "End date" &&
+              exp.responsibilities === "List of responsibilities"
+            }
           />
         ))}
       </div>
