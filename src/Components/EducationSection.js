@@ -22,7 +22,6 @@ const EducationSection = () => {
   );
 
   useEffect(() => {
-    console.table(edus);
     localStorage.setItem("edus", JSON.stringify(edus));
   }, [edus]);
 

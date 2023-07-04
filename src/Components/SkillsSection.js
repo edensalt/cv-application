@@ -18,7 +18,6 @@ const SkillSection = () => {
   );
 
   useEffect(() => {
-    console.table(skills);
     localStorage.setItem("skills", JSON.stringify(skills));
   }, [skills]);
 

@@ -21,7 +21,6 @@ const ExperienceSection = () => {
   );
 
   useEffect(() => {
-    console.table(exps);
     localStorage.setItem("exps", JSON.stringify(exps));
   }, [exps]);
 

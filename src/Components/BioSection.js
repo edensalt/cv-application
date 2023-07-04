@@ -7,14 +7,17 @@ const BioSection = () => {
   const storedBio = JSON.parse(localStorage.getItem('bio'));
 
   const isNew = () => {
-    if (
+    if (!storedBio) {
+      return true;
+    } if (
     storedBio.name === "Full name" &&
     storedBio.phone === "555-555-5555" &&
     storedBio.email ===  "yourname@email.com" &&
     storedBio.location === "City, State" &&
     storedBio.website === "github.com/yourname" &&
     storedBio.linkedin === "linkedin.com/in/yourname"
-    ) return true;
+    ) {return true}
+    else return false;
   }
 
   const [bio, setBio] = useState(
